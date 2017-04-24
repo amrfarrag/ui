@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View</h2>
+<div ng-controller="projectcontroller">
+        <div class="form-group row">
+            <div class="col-md-10">
+                <input class="form-control" type="text" placeholder="بحث" ng-model="q" />
+            </div>
+        </div>
+    </hr>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>اسم المشروع</th>
+                <th></th>
+                
+            </tr>
+        </thead>
+        <tbody >
+            <tr ng-repeat="pro in projects | filter:q as results">
+                <th scope="row">{{$index + 1}}</th>
+                <td>{{pro.ProjectName}}</td>
+                <td><a href="/project/Edit/{{pro.ProjectID}}">edit</a></td>
+            </tr>
+
+         
+        </tbody>
+    </table>
+</div>
