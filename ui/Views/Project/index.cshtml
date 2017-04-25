@@ -25,7 +25,7 @@
             <tr ng-repeat="pro in projects | filter:q as results">
                 <th scope="row">{{$index + 1}}</th>
                 <td>{{pro.ProjectName}}</td>
-                <td><a href="/project/Edit/{{pro.ProjectID}}">edit</a></td>
+                <td><a href="/project/Edit/{{pro.ProjectID}}" target="_self">edit</a></td>
             </tr>
 
          

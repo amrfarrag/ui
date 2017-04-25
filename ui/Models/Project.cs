@@ -9,6 +9,6 @@ namespace ui.Models
     {
         public int ProjectID { get; set; }
         public string ProjectName { get; set; }
-        public IEnumerable<Employer> Employer { get; set; }
+        public IEnumerable<Employer> Employers { get; set; }
     }
 }

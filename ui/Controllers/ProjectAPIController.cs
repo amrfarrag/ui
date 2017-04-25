@@ -14,7 +14,7 @@ namespace ui.Controllers
             new Project() {
             ProjectID = 0,
             ProjectName = "cargel",
-            Employer = new List<Employer>()
+            Employers = new List<Employer>()
                                  {
                                      new Employer() { EmployerID=0,EmployerCode=100,EmployerName="amr"},
                                      new Employer() {EmployerID=1,EmployerCode=101,EmployerName="hassan" },
@@ -25,7 +25,7 @@ namespace ui.Controllers
             new Project() {
             ProjectID = 1,
             ProjectName = "schools",
-            Employer = new List<Employer>()
+            Employers = new List<Employer>()
                                  {
                                      new Employer() { EmployerID=0,EmployerCode=100,EmployerName="msaid"},
                                      new Employer() {EmployerID=1,EmployerCode=101,EmployerName="msaad" },
@@ -41,9 +41,9 @@ namespace ui.Controllers
         }
 
         // GET: api/ProjectAPI/5
-        public string Get(int id)
+        public Project Get(int id)
         {
-            return "value";
+            return projects.Find(t =>t.ProjectID==id);
         }
 
         // POST: api/ProjectAPI
