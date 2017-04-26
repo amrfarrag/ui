@@ -21,11 +21,15 @@ app.controller("projectcontroller", function ($http, $scope, $location) {
         });
     }
     
+
+
     $scope.load = function () {
         $http.get("/api/projectapi").then(function (response) {
             $scope.projects = response.data;
         });
     }
+
+
     $scope.load();
     var path = $location.path();
     var id = path.split("/")[3];
@@ -35,6 +39,12 @@ app.controller("projectcontroller", function ($http, $scope, $location) {
         $http.get("/api/projectapi/" + id).then(function (response) {
             $scope.project = response.data;
             $scope.loademployers();
+        });
+        var employercodes = $scope.employers.map(function (a) {
+            return a.EmployerCode;
+        });
+        $("#autocode").autocomplete({
+            source: employercodes
         });
     }
 
