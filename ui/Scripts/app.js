@@ -5,14 +5,22 @@
     });
 });
 
-app.controller("projectcontroller", function ($http,$scope,$location) {
+app.controller("projectcontroller", function ($http, $scope, $location) {
     $scope.projects = [];
     $scope.project = {
         ProjectID: 0,
         ProjectName: "",
-        Employers:[]
+        Employers: []
     };
-    $scope.search = "";
+    $scope.employer={};
+    $scope.employers=[];
+    $scope.loademployers = function () {
+        $http.get("/api/employerapi").then(function (response) {
+            $scope.employers = response.data;
+
+        });
+    }
+    
     $scope.load = function () {
         $http.get("/api/projectapi").then(function (response) {
             $scope.projects = response.data;
@@ -21,11 +29,13 @@ app.controller("projectcontroller", function ($http,$scope,$location) {
     $scope.load();
     var path = $location.path();
     var id = path.split("/")[3];
-    
-   
+
+
     if (typeof id != 'undefined') {
         $http.get("/api/projectapi/" + id).then(function (response) {
             $scope.project = response.data;
+            $scope.loademployers();
         });
     }
-})
+
+});

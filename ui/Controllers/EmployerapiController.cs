@@ -8,33 +8,31 @@ using ui.Models;
 
 namespace ui.Controllers
 {
-    public class ProjectAPIController : ApiController
+    public class EmployerapiController : ApiController
     {
-
-        // GET: api/ProjectAPI
-        public IEnumerable<Project> Get()
+        // GET: api/Employerapi
+        public IEnumerable<Employer> Get()
         {
-
-            return context.getdb();
+            return context.getemployers();
         }
 
-        // GET: api/ProjectAPI/5
-        public Project Get(int id)
+        // GET: api/Employerapi/5
+        public string Get(int id)
         {
-            return context.getdb().Find(t =>t.ProjectID==id);
+            return "value";
         }
 
-        // POST: api/ProjectAPI
+        // POST: api/Employerapi
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/ProjectAPI/5
+        // PUT: api/Employerapi/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/ProjectAPI/5
+        // DELETE: api/Employerapi/5
         public void Delete(int id)
         {
         }
